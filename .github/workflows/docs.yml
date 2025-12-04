@@ -2,6 +2,9 @@ name: Docs
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - "**"  # optional: run on all branches
 
 concurrency:
   group: pages
@@ -27,12 +30,12 @@ jobs:
         run: bun install
 
       - name: Build SveltePress site
-        run: pnpm run build
+        run: pnpm run build   # or `bun run build` if using Bun
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./dist   # <-- SveltePress build folder
 
   docs:
     name: Deploy
