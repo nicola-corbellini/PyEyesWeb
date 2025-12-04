@@ -23,19 +23,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Bun
+      # Move into the SveltePress docs folder
+      - name: Setup Bun in docs
+        working-directory: pyeyesweb_docs
         uses: oven-sh/setup-bun@v2
 
       - name: Install dependencies
+        working-directory: pyeyesweb_docs
         run: bun install
 
       - name: Build SveltePress site
-        run: pnpm run build   # or `bun run build` if using Bun
+        working-directory: pyeyesweb_docs
+        run: pnpm run build   # or bun run build if you use Bun
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist   # <-- SveltePress build folder
+          path: pyeyesweb_docs/dist   # <-- SveltePress output folder
 
   docs:
     name: Deploy
