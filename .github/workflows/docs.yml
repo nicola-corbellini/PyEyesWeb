@@ -32,6 +32,9 @@ jobs:
         run: bun install
         working-directory: pyeyesweb_docs
 
+      - name: Setup pnpm
+        run: corepack enable && corepack prepare pnpm@latest --activate
+
       # Build SveltePress site inside pyeyesweb_docs
       - name: Build SveltePress site
         run: pnpm run build   # or `bun run build`
