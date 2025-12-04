@@ -26,14 +26,13 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Build SveltePress docs
-        run: bun run build
+      - name: Build SveltePress site
+        run: pnpm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # This is where SveltePress outputs the site
-          path: .sveltepress/build
+          path: ./dist
 
   docs:
     name: Deploy

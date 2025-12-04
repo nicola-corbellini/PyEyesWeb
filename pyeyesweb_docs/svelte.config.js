@@ -10,7 +10,11 @@ const config = {
 	kit: {
 		adapter: adapter({
 			pages: 'dist',
+			assets: 'dist'
 		}),
+		paths: {
+			base: '/pyeyesweb_docs'
+		}
 	},
 }
 

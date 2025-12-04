@@ -10,11 +10,7 @@ const config = defineConfig({
           {
             title : 'User Guide',
             to : '/user_guide/'
-          },
-          {
-            title : 'API',
-			to : '/api/'
-		  }
+          }
 		  ],
 				sidebar: {
 					// Add your sidebar configs here
